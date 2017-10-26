@@ -1,0 +1,32 @@
+<div class="header">
+  <div class="header__logo"></div>
+  <div class="menu">
+    <a href="#" *ngFor="let menu of page.menu" [ngClass]="['menu__link', menu.active ? 'menu__link--active':'']">
+      {{menu.name}}
+    </a>
+  </div>
+</div>
+<div class="content">
+  <div class="content__left">
+    <div class="item" *ngFor="let item of page.items.length">
+      <div class="item__title">{{page.items.title}}</div>
+      <div class="item__buttons">
+        <div class="button-heart"></div>
+        <div class="button-fix"></div>
+        <div class="button-go"></div>
+      </div>
+    </div>
+  </div>
+  <div class="content__right">
+    <div class="text">{{page.text}}</div>
+  </div>
+</div>
+<div class="footer">
+  <div class="footer__logo"></div>
+  <div class="icons-social">
+    <div class="icons-social__facebook"></div>
+    <div class="icons-social__pinteres"></div>
+    <div class="icons-social__vk"></div>
+  </div>
+  <div class="footer__copyright">@ 2017 Copyright</div>
+</div>

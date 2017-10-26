@@ -1,0 +1,146 @@
+@mixin icon-social($x, $y)
+  width: 40px
+  height: 40px
+  background: url("../../../assets/img/icons.png")
+  background-position: $x $y
+
+@mixin icon-item($w, $h, $x, $y)
+  width: $w
+  height: $h
+  background: url("../../../assets/img/icons.png")
+  background-position: $x $y
+
+@mixin header-and-footer($height, $bColor)
+  width: 100%
+  height: $height
+  display: flex
+  flex-flow: row wrap
+  justify-content: space-between
+  background-color: $bColor
+  padding: 0px 30px 0px 30px
+  box-sizing: border-box
+  align-items: center
+  color: white
+
+.logo
+  width: 53px
+  height: 45px
+  background: url("../../../assets/img/icons.png")
+  background-position: -6px -96px
+
+.header
+  @include header-and-footer(60px, #00897b)
+
+  &__logo
+    @extend .logo
+
+  .menu
+    &__link
+      padding: 18px
+      text-transform: uppercase
+      text-decoration: none
+      color: white
+
+      &--active
+        border-bottom: 4px solid white
+
+.content
+  display: flex
+  justify-content: space-between
+  width: 100%
+  min-height: 100%
+  position: absolute
+  box-sizing: border-box
+  padding: 0px 0px 49px 0px
+
+  &__left
+    width: 50%
+    padding: 0% 4% 0% 4%
+    display: flex
+    justify-content: center
+    flex-wrap: wrap
+    align-items: center
+    background-color: #eeeeee
+
+    .item
+      width: 150px
+      margin: 0px 20px 20px 0px
+
+      &__title
+        height: 145px
+        padding: 10px
+        display: flex
+        align-items: flex-end
+        background-color: #bdbdbd
+        color: white
+
+      &__buttons
+        height: 45px
+        display: flex
+        justify-content: space-around
+        align-items: center
+        background-color: white
+
+        .button-heart
+          @include icon-item(19px, 19px, -19px, -8px)
+        .button-fix
+          @include icon-item(15px, 20px, -70px, -7px)
+        .button-go
+          @include icon-item(19px, 19px, -115px, -8px)
+
+  &__right
+    width: 50%
+    padding: 0% 4% 0% 4%
+    display: flex
+    align-items: center
+
+    .text
+      position: fixed
+      height: 30%
+      width: 45%
+
+.footer
+  @include header-and-footer(75px, #212121)
+  position: fixed
+  bottom: 0
+
+  &__logo
+    @extend .logo
+    width: 15%
+
+  .icons-social
+    display: flex
+
+    &__facebook
+      @include icon-social(-4px, -40px)
+
+    &__pinteres
+      @include icon-social(-64px, -40px)
+      margin: 0px 5px 0px 5px
+
+    &__vk
+      @include icon-social(-123px, -40px)
+
+  &__copyright
+    width: 15%
+    text-align: right
+
+@media (max-width: 690px)
+  .menu
+    display: none
+
+  .footer
+    .icons-social
+      display: none
+
+    &__copyright
+      width: auto
+
+@media (max-width: 850px)
+  .content
+    &__right
+      align-items: flex-start
+      margin-top: 5%
+
+      .text
+        width: auto
